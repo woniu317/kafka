@@ -4,15 +4,15 @@ import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
 
-public class SendProducer extends Thread {
-            public static void main(String[] args) {
-                Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Starting exit...")));
-                producerMsg();
-            }
+public class SendProducer {
+    public static void main(String[] args) {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("Starting exit...")));
+        producerMsg();
+    }
 
-            private static void producerMsg() {
-                Properties properties = buildProperties();
-                Producer<String, String> producer = null;
+    private static void producerMsg() {
+        Properties properties = buildProperties();
+        Producer<String, String> producer = null;
         try {
             String topic = "zhoushijie";
             producer = new KafkaProducer<>(properties);
